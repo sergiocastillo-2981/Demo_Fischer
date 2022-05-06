@@ -7,7 +7,7 @@
   elements:
   - title: Sessions
     name: Sessions
-    model: vw_prod_tst
+    model: fischer_demo
     explore: session
     type: single_value
     fields: [session.count_ca_sessions]
@@ -41,18 +41,17 @@
     note_display: hover
     note_text: Interactions are sessions opened by a customer and a bot
     listen:
-      Brand: session.brand
       Created Date: session.created_date
     row: 0
     col: 0
     width: 3
     height: 3
-  - title: Self Service%
-    name: Self Service%
-    model: vw_prod_tst
+  - title: Deflections%
+    name: Deflections%
+    model: fischer_demo
     explore: session
     type: single_value
-    fields: [session.percent_self_service]
+    fields: [session.percent_deflections]
     limit: 500
     custom_color_enabled: true
     show_single_value_title: true
@@ -67,18 +66,17 @@
     series_types: {}
     defaults_version: 1
     listen:
-      Brand: session.brand
       Created Date: session.created_date
     row: 0
     col: 15
     width: 3
     height: 3
-  - title: Self Service
-    name: Self Service
-    model: vw_prod_tst
+  - title: Deflections
+    name: Deflections
+    model: fischer_demo
     explore: session
     type: single_value
-    fields: [session.count_self_service]
+    fields: [session.count_deflections]
     limit: 500
     custom_color_enabled: true
     show_single_value_title: true
@@ -129,86 +127,19 @@
     note_display: above
     note_text: Sessions fully served by the bot
     listen:
-      Brand: session.brand
+      #Brand: session.brand
       Created Date: session.created_date
     row: 0
     col: 12
     width: 3
     height: 3
-  - title: Avg Handle Time By Brand
-    name: Avg Handle Time By Brand
-    model: vw_prod_tst
-    explore: session
-    type: looker_grid
-    fields: [session.brand, session.avg_ca_handle_time_hms]
-    fill_fields: [session.brand]
-    filters:
-      session.dwf_product: CA
-    sorts: [session.avg_ca_handle_time_hms desc]
-    limit: 500
-    show_view_names: false
-    show_row_numbers: true
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: left
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    series_labels:
-      session.avg_ca_handle_time_hms: Avg Handle Time (HH:MM:SS)
-    series_cell_visualizations:
-      session.avg_ca_handle_time_hms:
-        is_active: true
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    series_types: {}
-    listen:
-      Created Date: session.created_date
-    row: 3
-    col: 0
-    width: 9
-    height: 6
   - title: Metrics by Day
     name: Metrics by Day
-    model: vw_prod_tst
+    model: fischer_demo
     explore: session
     type: looker_column
     fields: [session.created_date, session.count_ca_sessions, sessionhistory.count_engagements,
-      session.count_escalations, session.count_self_service]
+      session.count_escalations, session.count_deflections]
     fill_fields: [session.created_date]
     filters:
       session.dwf_product: CA
@@ -248,7 +179,7 @@
       session.count_escalations_ss: Escalations
       sessionhistory.count_engagements: Engagements
       session.count_escalations: Escalations
-      session.count_self_service: Deflections
+      session.count_deflections: Deflections
     show_null_points: true
     interpolation: linear
     defaults_version: 1
@@ -260,7 +191,7 @@
     down_color: false
     total_color: false
     listen:
-      Brand: session.brand
+      #Brand: session.brand
       Created Date: session.created_date
     row: 3
     col: 9
@@ -268,7 +199,7 @@
     height: 6
   - title: Escalations
     name: Escalations
-    model: vw_prod_tst
+    model: fischer_demo
     explore: session
     type: single_value
     fields: [session.count_escalations]
@@ -288,7 +219,7 @@
     series_types: {}
     defaults_version: 1
     listen:
-      Brand: session.brand
+      #Brand: session.brand
       Created Date: session.created_date
     row: 0
     col: 6
@@ -296,7 +227,7 @@
     height: 3
   - title: Escalation%
     name: Escalation%
-    model: vw_prod_tst
+    model: fischer_demo
     explore: session
     type: single_value
     fields: [session.percent_escalations]
@@ -314,7 +245,7 @@
     series_types: {}
     defaults_version: 1
     listen:
-      Brand: session.brand
+      #Brand: session.brand
       Created Date: session.created_date
     row: 0
     col: 9
@@ -322,7 +253,7 @@
     height: 3
   - title: Engagements
     name: Engagements
-    model: vw_prod_tst
+    model: fischer_demo
     explore: session
     type: single_value
     fields: [sessionhistory.count_engagements]
@@ -345,7 +276,7 @@
     note_display: hover
     note_text: Engagements are sessions where the Customer chatted to the bot
     listen:
-      Brand: session.brand
+      #Brand: session.brand
       Created Date: session.created_date
     row: 0
     col: 3
@@ -353,7 +284,7 @@
     height: 3
   - title: Top 10 URL Sources
     name: Top 10 URL Sources
-    model: vw_prod_tst
+    model: fischer_demo
     explore: session
     type: looker_grid
     fields: [sessionhistory.source_url, session.count_ca_sessions]
@@ -431,7 +362,7 @@
     height: 6
   - title: Top 10 Referrers
     name: Top 10 Referrers
-    model: vw_prod_tst
+    model: fischer_demo
     explore: session
     type: looker_grid
     fields: [sessionhistory.referrer, session.count_ca_sessions]
@@ -511,7 +442,7 @@
     height: 6
   - title: User Returning
     name: User Returning
-    model: vw_prod_tst
+    model: fischer_demo
     explore: session
     type: looker_pie
     fields: [session.count_ca_sessions, sessionhistory.user_returning]
@@ -568,7 +499,7 @@
     height: 6
   - title: Top 10 Intents
     name: Top 10 Intents
-    model: vw_prod_tst
+    model: fischer_demo
     explore: session
     type: looker_wordcloud
     fields: [intentdetails.count_ca_intents, intentdetails.intent]
@@ -608,7 +539,7 @@
     series_types: {}
     listen:
       Created Date: session.created_date
-      Brand: session.brand
+      #Brand: session.brand
     row: 21
     col: 0
     width: 18
@@ -624,7 +555,7 @@
       type: relative_timeframes
       display: inline
       options: []
-    model: vw_prod_tst
+    model: fischer_demo
     explore: session
     listens_to_filters: []
     field: session.created_date

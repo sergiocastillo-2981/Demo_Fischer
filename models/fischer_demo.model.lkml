@@ -2,8 +2,8 @@ connection: "fischer_demo3"
 
 # include all the views
 include: "/views/**/*.view"
-include: "/session_refinement.lkml"
-include: "/sessionhistory_refinement.lkml"
+include: "/refinements.lkml"
+
 include: "/CA_Metrics_Demo.dashboard"
 
 datagroup: fischer_demo_default_datagroup {
