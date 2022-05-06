@@ -1,5 +1,5 @@
 - dashboard: general_ca_metrics
-  title: General CA Metrics
+  title: Parasol CA Metrics
   layout: newspaper
   preferred_viewer: dashboards-next
   crossfilter_enabled: true
