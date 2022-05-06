@@ -4,6 +4,7 @@ connection: "fischer_demo3"
 include: "/views/**/*.view"
 include: "/session_refinement.lkml"
 include: "/sessionhistory_refinement.lkml"
+include: "/CA_Metrics_Demo.dashboard"
 
 datagroup: fischer_demo_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
