@@ -42,6 +42,7 @@
     note_text: Interactions are sessions opened by a customer and a bot
     listen:
       Created Date: session.created_date
+      Application: cg_channel_config.application
     row: 0
     col: 0
     width: 3
@@ -67,6 +68,7 @@
     defaults_version: 1
     listen:
       Created Date: session.created_date
+      Application: cg_channel_config.application
     row: 0
     col: 15
     width: 3
@@ -127,7 +129,7 @@
     note_display: above
     note_text: Sessions fully served by the bot
     listen:
-      #Brand: session.brand
+      Application: cg_channel_config.application
       Created Date: session.created_date
     row: 0
     col: 12
@@ -191,7 +193,7 @@
     down_color: false
     total_color: false
     listen:
-      #Brand: session.brand
+      Application: cg_channel_config.application
       Created Date: session.created_date
     row: 3
     col: 9
@@ -218,8 +220,11 @@
     single_value_title: Escalations
     series_types: {}
     defaults_version: 1
+    note_state: collapsed
+    note_display: above
+    note_text: Sessions escalated to a live Agent
     listen:
-      #Brand: session.brand
+      Application: cg_channel_config.application
       Created Date: session.created_date
     row: 0
     col: 6
@@ -245,7 +250,7 @@
     series_types: {}
     defaults_version: 1
     listen:
-      #Brand: session.brand
+      Application: cg_channel_config.application
       Created Date: session.created_date
     row: 0
     col: 9
@@ -276,7 +281,7 @@
     note_display: hover
     note_text: Engagements are sessions where the Customer chatted to the bot
     listen:
-      #Brand: session.brand
+      Application: cg_channel_config.application
       Created Date: session.created_date
     row: 0
     col: 3
@@ -356,6 +361,7 @@
     show_null_points: true
     listen:
       Created Date: session.created_date
+      Application: cg_channel_config.application
     row: 9
     col: 0
     width: 18
@@ -436,6 +442,7 @@
     interpolation: linear
     listen:
       Created Date: session.created_date
+      Application: cg_channel_config.application
     row: 15
     col: 0
     width: 14
@@ -493,6 +500,7 @@
     interpolation: linear
     listen:
       Created Date: session.created_date
+      Application: cg_channel_config.application
     row: 15
     col: 14
     width: 4
@@ -539,11 +547,11 @@
     series_types: {}
     listen:
       Created Date: session.created_date
-      #Brand: session.brand
-    row: 21
+      Application: cg_channel_config.application
+    row: 3
     col: 0
-    width: 18
-    height: 4
+    width: 9
+    height: 6
   filters:
   - name: Created Date
     title: Created Date
@@ -559,3 +567,17 @@
     explore: session
     listens_to_filters: []
     field: session.created_date
+  - name: Application
+    title: Application
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: radio_buttons
+      display: popover
+      options: []
+    model: fischer_demo
+    explore: session
+    listens_to_filters: []
+    field: cg_channel_config.application
