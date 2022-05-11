@@ -1,6 +1,7 @@
 include: "views/session.view.lkml"
-include: "views/intentdetails.view.lkml"
 include: "views/sessionhistory.view.lkml"
+include: "views/intentdetails.view.lkml"
+
 
 
 view: +session {
