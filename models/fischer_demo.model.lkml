@@ -34,3 +34,5 @@ explore: session{
     relationship: many_to_one
   }
 }
+
+explore: ytd_summary {}
