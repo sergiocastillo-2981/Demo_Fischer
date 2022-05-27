@@ -4,17 +4,17 @@ view: ytd_summary {
   dimension: customerId {
     type: number
     primary_key: yes
-    sql: ${TABLE}.TenantID ;;
+    sql: ${TABLE}."TenantID" ;;
   }
 
   dimension: customerName {
     type: string
-    sql: ${TABLE}.Tenant Name ;;
+    sql: ${TABLE}."Tenant Name" ;;
   }
 
   dimension: price {
     type:number
-    sql: ${TABLE}.Price ;;
+    sql: ${TABLE}."Price" ;;
   }
   # # You can specify the table name if it's different from the view name:
   # sql_table_name: my_schema_name.tester ;;
