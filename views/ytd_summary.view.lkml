@@ -21,6 +21,45 @@ view: ytd_summary {
     type:number
     sql: ${TABLE}."Price" ;;
   }
+
+  dimension_group: peak_time {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+  }
+
+  dimension_group: data_collected {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+  }
+
+  dimension: peak_agent_count {
+    type: number
+    sql: ${TABLE}."Peak Agent Count" ;;
+  }
+
+  measure: count {
+    type: count
+    drill_fields: [id]
+  }
+
+
+
   # # You can specify the table name if it's different from the view name:
   # sql_table_name: my_schema_name.tester ;;
   #
