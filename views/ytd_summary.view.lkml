@@ -1,9 +1,14 @@
 view: ytd_summary {
   sql_table_name: public.ytd_summary ;;
 
-  dimension: customerId {
+  dimension: id {
     type: number
     primary_key: yes
+    sql: ${TABLE}."id" ;;
+  }
+
+  dimension: customerId {
+    type: number
     sql: ${TABLE}."TenantID" ;;
   }
 
