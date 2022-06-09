@@ -1,5 +1,5 @@
 connection: "fischer_demo3"
-
+#Author Sergio Castillo.
 # include all the views
 include: "/views/**/*.view"
 include: "/refinements.lkml"
